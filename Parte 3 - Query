@@ -1,0 +1,199 @@
+db.studenti.find({ eta: { $gt: 22}}).pretty()        ##Gli studenti con età maggiore di 22 
+
+{
+  _id: ObjectId('69932c0f1243f32dad5a4b01'),
+  nome: 'Claudio',
+  cognome: 'Scuderi',
+  eta: 30,
+  residenza: {
+    via: 'Via Liberta 208',
+    citta: 'Catania',
+    CAP: 95020
+  },
+  documento_id: {
+    tipo: 'carta_identita',
+    numero: 'FG48374UJ'
+  },
+  hobby: [
+    'videogiochi',
+    'anime'
+  ],
+  esami: [
+    {
+      materia: 'chimica',
+      voto: 24
+    },
+    {
+      materia: 'matematica',
+      voto: 26
+    }
+  ]
+}
+
+
+
+db.studenti.find({ "residenza.citta": "Catania" })          ##Gli studenti che vivono a Catania
+
+{
+  _id: ObjectId('69932c0f1243f32dad5a4b04'),
+  nome: 'Luca',
+  cognome: 'Verdi',
+  eta: 24,
+  residenza: {
+    via: 'Via Etnea 50',
+    citta: 'Catania',
+    CAP: 95100
+  },
+  documento_id: {
+    tipo: 'passaporto',
+    numero: 'YY56473GH'
+  },
+  hobby: [
+    'musica'
+  ],
+  esami: [
+    {
+      materia: 'storia',
+      voto: 25
+    }
+  ]
+}
+
+
+
+db.studenti.find({ "hobby" : "calcio" })         ##Gli studenti che hanno l'hobby del calcio
+
+{
+  _id: ObjectId('69932c0f1243f32dad5a4b02'),
+  nome: 'Marco',
+  cognome: 'Rossi',
+  eta: 22,
+  residenza: {
+    via: 'Via Roma 10',
+    citta: 'Palermo',
+    CAP: 90100
+  },
+  documento_id: {
+    tipo: 'patente',
+    numero: 'AB12345RT'
+  },
+  hobby: [
+    'calcio',
+    'palestra'
+  ],
+  esami: [
+    {
+      materia: 'informatica',
+      voto: 28
+    }
+  ]
+}
+
+
+
+db.studenti.find({ hobby: { $ne: "musica" } })       ##Gli studenti che non hanno l'hobby della musica
+
+{
+  _id: ObjectId('69932c0f1243f32dad5a4b03'),
+  nome: 'Anna',
+  cognome: 'Bianchi',
+  eta: 21,
+  residenza: {
+    via: 'Via Milano 5',
+    citta: 'Torino',
+    CAP: 10100
+  },
+  documento_id: {
+    tipo: 'carta_identita',
+    numero: 'ZX98765PL'
+  },
+  hobby: [
+    'lettura'
+  ],
+  esami: [
+    {
+      materia: 'matematica',
+      voto: 27
+    },
+    {
+      materia: 'fisica',
+      voto: 30
+    },
+    {
+      materia: 'chimica',
+      voto: 29
+    }
+  ]
+}
+
+
+
+db.studenti.find({ "esami.materia" : "fisica"})           ##Gli studenti che hanno superato fisica
+
+{
+  _id: ObjectId('69932c0f1243f32dad5a4b03'),
+  nome: 'Anna',
+  cognome: 'Bianchi',
+  eta: 21,
+  residenza: {
+    via: 'Via Milano 5',
+    citta: 'Torino',
+    CAP: 10100
+  },
+  documento_id: {
+    tipo: 'carta_identita',
+    numero: 'ZX98765PL'
+  },
+  hobby: [
+    'lettura'
+  ],
+  esami: [
+    {
+      materia: 'matematica',
+      voto: 27
+    },
+    {
+      materia: 'fisica',
+      voto: 30
+    },
+    {
+      materia: 'chimica',
+      voto: 29
+    }
+  ]
+}
+
+
+
+db.studenti.find({
+  "esami.materia": { $in: ["matematica", "informatica"] }          ##Gli studenti che hanno superato almeno una materia tra matematica ed informatica
+
+  {
+  _id: ObjectId('69932b571243f32dad5a4b00'),
+  nome: 'Claudio',
+  cognome: 'Scuderi',
+  'età': 30,
+  residenza: {
+    via: 'Via Libertà 208',
+    'città': 'Catania',
+    CAP: 95020
+  },
+  documento_id: {
+    tipo: 'carta d_identita',
+    numero: 'FG48374UJ'
+  },
+  Hobby: [
+    'videogiochi',
+    'anime'
+  ],
+  esami: [
+    {
+      materia: 'chimica',
+      voto: 24
+    },
+    {
+      materia: 'matematica',
+      voto: 26
+    }
+  ]
+}
