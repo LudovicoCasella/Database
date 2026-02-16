@@ -1,0 +1,28 @@
+db.studenti.insertMany([
+{
+  nome: "Claudio",         ##questi sono campi semplici dato che sono solo dei semplici dati
+  cognome: "Scuderi",
+  eta: 30,
+
+  residenza: {
+    via: "Via Liberta 208",       ##questi sono oggetti innestati dato che sono dati inseriti a loro volte dentro un'altro documento
+    citta: "Catania",
+    CAP: 95020
+  },
+
+  documento_id: {              ##anche questi sono oggetti innestati dato che sono simili a "residenza"
+    tipo: "carta_identita",
+    numero: "FG48374UJ"
+  },
+
+  hobby: [               ##è un array perché contiene una chiave di valori
+    "videogiochi",
+    "anime"
+  ],
+
+  esami: [
+    { materia: "chimica", voto: 24 },            ##è un array innestato dato che stiamo inserendo degli oggetti innestati all'interno di un'array
+    { materia: "matematica", voto: 26 }
+  ]
+},
+
